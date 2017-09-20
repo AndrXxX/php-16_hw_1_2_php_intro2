@@ -4,50 +4,50 @@ $homeWorkCaption = 'Основы PHP';
 $startNum = null;
 
 if (!empty($_GET['send-button'])) {
-  if (!empty($_GET['input_value'])) {
-    $startNum = (int)$_GET['input_value'];
-  }
+    if (!empty($_GET['input_value'])) {
+        $startNum = (int)$_GET['input_value'];
+    }
 }
 
 if (!empty($_GET['random-button'])) {
-  $startNum = rand(1, 9999);
+    $startNum = rand(1, 9999);
 }
 
 if (!is_null($startNum)) {
-  $inputHint = 'Задуманное число: ' . $startNum . '.';
-  $num1 = 1;
-  $num2 = 1;
-  $numericalSeries = array();
-  $numericalSeries[0] = $num1;
-  $numericalSeries[1] = $num2;
-  $i = 1;
-  do {
-    $needContinue = true;
-    if ($num1 > $startNum) {
-      $outputHint = 'Задуманное число НЕ входит в числовой ряд: ' . fullNumericalSeries($numericalSeries);
-      $needContinue = false;
-    } elseif ($num1 == $startNum) {
-      $outputHint = 'Задуманное число входит в числовой ряд: ' . fullNumericalSeries($numericalSeries);
-      $needContinue = false;
-    } else {
-      $num3 = $num1;
-      $num1 = $num1 + $num2;
-      $num2 = $num3;
-      $numericalSeries[++$i] = $num1;
-    }
-  } while ($needContinue);
+    $inputHint = 'Задуманное число: ' . $startNum . '.';
+    $num1 = 1;
+    $num2 = 1;
+    $numericalSeries = array();
+    $numericalSeries[0] = $num1;
+    $numericalSeries[1] = $num2;
+    $i = 1;
+    do {
+        $needContinue = true;
+        if ($num1 > $startNum) {
+            $outputHint = 'Задуманное число НЕ входит в числовой ряд: ' . fullNumericalSeries($numericalSeries);
+            $needContinue = false;
+        } elseif ($num1 == $startNum) {
+            $outputHint = 'Задуманное число входит в числовой ряд: ' . fullNumericalSeries($numericalSeries);
+            $needContinue = false;
+        } else {
+            $num3 = $num1;
+            $num1 = $num1 + $num2;
+            $num2 = $num3;
+            $numericalSeries[++$i] = $num1;
+        }
+    } while ($needContinue);
 } else {
-  $inputHint = '';
-  $outputHint = '';
+    $inputHint = '';
+    $outputHint = '';
 }
 
 function fullNumericalSeries($array)
 {
-  $str = '';
-  foreach ($array as $i) {
-    $str = $str . $i . ' ';
-  }
-  return $str;
+    $str = '';
+    foreach ($array as $i) {
+        $str = $str . $i . ' ';
+    }
+    return $str;
 }
 
 ?>
@@ -61,7 +61,6 @@ function fullNumericalSeries($array)
     body {
       font-family: sans-serif;
     }
-
     input {
       margin: 10px 0;
     }

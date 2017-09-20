@@ -69,7 +69,7 @@ function fullNumericalSeries($array)
 </head>
 
 <body>
-<h1>Здравствуйте! <?= $name ?></h1>
+<h1>Здравствуйте!</h1>
 <form action="" method="GET">
   <label>Введите любое число: <input type="text" name="input_value"></label>
   <div style="display: block;">

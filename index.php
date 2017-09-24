@@ -1,53 +1,53 @@
 <?php
-  $homeWorkNum = '1.2';
-  $homeWorkCaption = 'Основы PHP';
-  $startNum = null;
-  
-  if (!empty($_GET['send-button'])) {
-      if (!empty($_GET['input_value'])) {
-          $startNum = (int)$_GET['input_value'];
-      }
-  }
-  
-  if (!empty($_GET['random-button'])) {
-      $startNum = rand(1, 9999);
-  }
-  
-  if (!is_null($startNum)) {
-      $inputHint = 'Задуманное число: ' . $startNum . '.';
-      $num1 = 1;
-      $num2 = 1;
-      $numericalSeries = array();
-      $numericalSeries[0] = $num1;
-      $numericalSeries[1] = $num2;
-      $i = 1;
-      do {
-          if ($num1 > $startNum) {
-              $outputHint = 'Задуманное число НЕ входит в числовой ряд: ' . fullNumericalSeries($numericalSeries);
-              break;
-          } elseif ($num1 == $startNum) {
-              $outputHint = 'Задуманное число входит в числовой ряд: ' . fullNumericalSeries($numericalSeries);
-              break;
-          } else {
-              $num3 = $num1;
-              $num1 = $num1 + $num2;
-              $num2 = $num3;
-              $numericalSeries[++$i] = $num1;
-          }
-      } while (true);
-  } else {
-      $inputHint = '';
-      $outputHint = '';
-  }
-  
-  function fullNumericalSeries($array)
-  {
-      $str = '';
-      foreach ($array as $i) {
-          $str = $str . $i . ' ';
-      }
-      return $str;
-  }
+    $homeWorkNum = '1.2';
+    $homeWorkCaption = 'Основы PHP';
+    $startNum = null;
+    
+    if (!empty($_GET['send-button'])) {
+        if (!empty($_GET['input_value'])) {
+            $startNum = (int)$_GET['input_value'];
+        }
+    }
+    
+    if (!empty($_GET['random-button'])) {
+        $startNum = rand(1, 9999);
+    }
+    
+    if (!is_null($startNum)) {
+        $inputHint = 'Задуманное число: ' . $startNum . '.';
+        $num1 = 1;
+        $num2 = 1;
+        $numericalSeries = array();
+        $numericalSeries[0] = $num1;
+        $numericalSeries[1] = $num2;
+        $i = 1;
+        do {
+            if ($num1 > $startNum) {
+                $outputHint = 'Задуманное число НЕ входит в числовой ряд: ' . fullNumericalSeries($numericalSeries);
+                break;
+            } elseif ($num1 == $startNum) {
+                $outputHint = 'Задуманное число входит в числовой ряд: ' . fullNumericalSeries($numericalSeries);
+                break;
+            } else {
+                $num3 = $num1;
+                $num1 = $num1 + $num2;
+                $num2 = $num3;
+                $numericalSeries[++$i] = $num1;
+            }
+        } while (true);
+    } else {
+        $inputHint = '';
+        $outputHint = '';
+    }
+    
+    function fullNumericalSeries($array)
+    {
+        $str = '';
+        foreach ($array as $i) {
+            $str = $str . $i . ' ';
+        }
+        return $str;
+    }
 
 ?>
 

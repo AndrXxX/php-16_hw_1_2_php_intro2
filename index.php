@@ -2,17 +2,17 @@
     $homeWorkNum = '1.2';
     $homeWorkCaption = 'Основы PHP';
     $startNum = null;
-    
+
     if (!empty($_GET['send-button'])) {
         if (!empty($_GET['input_value'])) {
             $startNum = (int)$_GET['input_value'];
         }
     }
-    
+
     if (!empty($_GET['random-button'])) {
         $startNum = rand(1, 9999);
     }
-    
+
     if (!is_null($startNum)) {
         $inputHint = 'Задуманное число: ' . $startNum . '.';
         $num1 = 1;
@@ -39,7 +39,7 @@
         $inputHint = '';
         $outputHint = '';
     }
-    
+
     function fullNumericalSeries($array)
     {
         $str = '';
@@ -66,7 +66,7 @@
       }
     </style>
   </head>
-  
+
   <body>
   <h1>Здравствуйте!</h1>
   <form action="" method="GET">
